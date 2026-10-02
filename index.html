@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tuan Tran</title>
+  <meta name="description" content="Tuan Tran, Ph.D. candidate in Computer Science at the University of Colorado Boulder. Networked systems, SmartNIC/DPU acceleration, and large-scale video conferencing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wine: #561a2f;
+      --side-text: #f6edf0;
+      --side-muted: #cfb0ba;
+      --side-line: rgba(255, 255, 255, 0.16);
+      --ink: #231c1f;
+      --muted: #6f6368;
+      --accent: #9b1b3b;
+      --rule: #e9e0e3;
+      --bg: #ffffff;
+      --sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      display: grid;
+      grid-template-columns: 19rem minmax(0, 1fr);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.18em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 2px; }
+
+    /* ---------- Sidebar ---------- */
+    aside {
+      background: var(--wine);
+      color: var(--side-text);
+      font-family: var(--sans);
+      padding: 2.75rem 2rem 2.5rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .photo {
+      width: 9.5rem;
+      height: 9.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 3px solid rgba(255, 255, 255, 0.25);
+    }
+    aside h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin: 1.4rem 0 0.25rem;
+    }
+    .tagline { color: var(--side-muted); margin: 0 0 1.5rem; line-height: 1.45; font-size: 0.98rem; }
+    aside h2 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--side-muted);
+      margin: 1.6rem 0 0.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--side-line);
+    }
+    aside ul { list-style: none; margin: 0; padding: 0; }
+    aside li { margin: 0.3rem 0; font-size: 0.98rem; }
+    aside p { margin: 0; font-size: 0.98rem; line-height: 1.45; }
+    aside a { color: var(--side-text); }
+    aside a:hover { color: #fff; }
+
+    /* ---------- Main content ---------- */
+    main { padding: 3.25rem 4rem 4rem; max-width: 56rem; }
+    section { margin-bottom: 3rem; }
+    main h2 {
+      font-family: var(--sans);
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--rule);
+      position: relative;
+    }
+    main h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 3rem;
+      height: 2px;
+      background: var(--accent);
+    }
+    .lead { font-size: 1.1rem; margin-top: 0; }
+
+    /* Dated entries: experience, education, awards */
+    .timeline .entry {
+      display: grid;
+      grid-template-columns: 8.5rem 1fr;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
+    .timeline .entry + .entry { border-top: 1px solid var(--rule); }
+    .when { font-family: var(--sans); color: var(--muted); font-size: 0.95rem; padding-top: 0.2rem; }
+    .entry h3 { font-family: var(--sans); font-size: 1.08rem; font-weight: 600; margin: 0; }
+    .where { margin: 0.1rem 0 0.3rem; color: var(--muted); }
+    .entry p { margin: 0.25rem 0 0; }
+    .entry ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
+    .entry li { margin: 0.2rem 0; }
+
+    /* Publications and patents */
+    .pubs { list-style: none; margin: 0; padding: 0; }
+    .pub { padding: 0.9rem 0; }
+    .pub + .pub { border-top: 1px solid var(--rule); }
+    .pub-title { font-family: var(--sans); font-weight: 600; font-size: 1.08rem; color: var(--ink); }
+    .pub-title:hover, .pub-title:focus-visible { color: var(--accent); }
+    .authors { margin: 0.2rem 0 0.1rem; }
+    .authors b { font-weight: 600; }
+    .venue { margin: 0; color: var(--muted); font-size: 0.98rem; }
+    .venue b { color: var(--ink); font-weight: 600; }
+    .note { color: var(--muted); font-size: 0.95rem; margin: 0 0 0.75rem; }
+
+    .plain { margin: 0; padding-left: 1.1rem; }
+    .plain li { margin: 0.25rem 0; }
+
+    footer {
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+    }
+
+    /* Phones and narrow windows: sidebar stacks on top */
+    @media (max-width: 52rem) {
+      body { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; padding: 2rem 1.5rem; }
+      .photo { width: 7.5rem; height: 7.5rem; }
+      .contact { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+      main { padding: 2rem 1.25rem 3rem; }
+      .timeline .entry { grid-template-columns: 1fr; gap: 0.15rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ========== SIDEBAR ========== -->
+  <aside>
+    <!-- photo.jpg sits in the same folder as this file -->
+    <img class="photo" src="photo.jpg" alt="Portrait of Tuan Tran">
+    <h1>Tuan Tran</h1>
+    <p class="tagline">Ph.D. Candidate in Computer Science<br>University of Colorado Boulder</p>
+
+    <!-- TODO: paste your LinkedIn and Google Scholar URLs into the two href="#" below -->
+    <ul class="contact">
+      <li><a href="mailto:Tuan.Tran@colorado.edu">Tuan.Tran@colorado.edu</a></li>
+      <li><a href="https://github.com/tmatuan-dpu">GitHub</a></li>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Google Scholar</a></li>
+      <li><a href="TuanTran_CV.pdf">CV (PDF)</a></li>
+    </ul>
+
+    <h2>Affiliation</h2>
+    <p>Internet Systems Lab (ISL)<br>Department of Computer Science<br>University of Colorado Boulder</p>
+
+    <h2>Research interests</h2>
+    <ul>
+      <li>Networked systems</li>
+      <li>SmartNIC / DPU acceleration</li>
+      <li>RDMA and kernel-bypass networking</li>
+      <li>Mobile streaming over 5G</li>
+      <li>Large-scale video conferencing</li>
+    </ul>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">I am a Ph.D. candidate in Computer Science at the University of Colorado Boulder, where I work with Prof. Sangtae Ha in the Internet Systems Lab. My research is on networked systems for real-time media: RDMA- and DPU-accelerated infrastructure for high-throughput, low-latency streaming and AI systems, and multipath 5G transport for high-quality video calls at large scale. Recent first-author work includes eXpressSFU (NSDI&nbsp;'26), which scales video conferencing with SmartNICs, and DeepSFU (SIGCOMM&nbsp;'26), scalable deepfake detection for video conferencing.</p>
+      <p>Before Boulder, I spent three years as a research engineer at Singapore Management University working on multimodal human–robot instruction comprehension and low-power pervasive vision. I completed my B.Tech. in Computer Engineering at Ho Chi Minh City University of Technology, graduating first in my major with a thesis on FPGA-based intrusion detection for software-defined networking. In summer 2026 I was a student researcher on the Multimedia Streaming team at ByteDance.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="entry">
+          <div class="when">Summer 2026</div>
+          <div>
+            <h3>Student Researcher</h3>
+            <p class="where">Multimedia Streaming, ByteDance</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2019 – 2022</div>
+          <div>
+            <h3>Research Engineer</h3>
+            <p class="where">Singapore Management University</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">Summer 2018</div>
+          <div>
+            <h3>Design Verification Intern</h3>
+            <p class="where">Marvell Vietnam</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="entry">
+          <div class="when">2022 – present</div>
+          <div>
+            <h3>Ph.D. in Computer Science</h3>
+            <p class="where">University of Colorado Boulder</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2022 – 2025</div>
+          <div>
+            <h3>M.S. in Computer Science</h3>
+            <p class="where">University of Colorado Boulder</p>
+            <p>GPA 3.982 / 4.0</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2014 – 2019</div>
+          <div>
+            <h3>B.Tech. in Computer Engineering</h3>
+            <p class="where">Ho Chi Minh City University of Technology</p>
+            <ul>
+              <li>Program in English. GPA 8.62 / 10, ranked 1st in major and 4th in department</li>
+              <li>Thesis: <i>Lightweight and High-throughput Anomaly-based Intrusion Detection System for Software-defined Networking</i>, implemented on NetFPGA-10G (Xilinx)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="note">* equal contribution</p>
+      <ul class="pubs">
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1145/3789240.3829184">DeepSFU: Scalable Deepfake Detection for Video Conferencing</a>
+          <p class="authors"><b>Tuan Tran</b>, Shirin Ebadi, S. M. H. Hosseini, Woongsub Shin, Evan Ram, Youngwook Son, Seyeon Kim, Nam Bui, Kyunghan Lee, Eric Keller, and Sangtae Ha</p>
+          <p class="venue"><b>ACM SIGCOMM 2026</b>, Denver, CO, USA, August 2026</p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://www.usenix.org/conference/nsdi26/presentation/tran">eXpressSFU: Toward Super-Scalable Video Conferencing with SmartNICs</a>
+          <p class="authors"><b>Tuan Tran</b>, S. M. H. Hosseini, Seyeon Kim, Kyunghan Lee, Nam Bui, Dirk Grunwald, and Sangtae Ha</p>
+          <p class="venue"><b>USENIX NSDI 2026</b>, Renton, WA, USA, May 2026</p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1145/3767308.3835424">RTCBench: A Scalable Benchmarking Framework for Multi-Party Video Conferencing</a>
+          <p class="authors">Evan Ram*, <b>Tuan Tran</b>*, Youngwook Son, and Sangtae Ha</p>
+          <p class="venue"><b>ACM Multimedia 2026</b>, Rio de Janeiro, Brazil, 2026</p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1109/INFOCOM59046.2026.11571323">PAVE: Mitigating Non-Congestive Delay for Seamless Video Calls over NextG Mobile Networks</a>
+          <p class="authors">Goodsol Lee, Seyeon Kim, Juheon Yi, Junhong Min, <b>Tuan Tran</b>, Sangtae Ha, Kyunghan Lee, and Saewoong Bahk</p>
+          <p class="venue"><b>IEEE INFOCOM 2026</b>, Tokyo, Japan, May 2026</p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1109/COMSNETS56262.2023.10041269">Demonstrating Multi-modal Human Instruction Comprehension with AR Smart Glass</a>
+          <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, <b>Tuan Tran</b>, and Archan Misra</p>
+          <p class="venue"><b>COMSNETS 2023</b></p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1145/3503161.3548432">SoftSkip: Empowering Multi-Modal Dynamic Pruning for Single-Stage Referring Comprehension</a>
+          <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, <b>Tuan Tran</b>, and Archan Misra</p>
+          <p class="venue"><b>ACM Multimedia 2022</b>, Lisbon, Portugal, October 2022</p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1109/LRA.2022.3194683">COSM2IC: Optimizing Real-Time Multi-Modal Instruction Comprehension</a>
+          <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, <b>Tuan Tran</b>, and Archan Misra</p>
+          <p class="venue"><b>IEEE Robotics and Automation Letters</b>, vol. 7, no. 4, 2022</p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1109/PerCom53586.2022.9762398">MRIM: Enabling Mixed-Resolution Imaging for Low-Power Pervasive Vision Tasks</a>
+          <p class="authors">Ji-Yan Wu, Vithurson Subasharan, <b>Tuan Tran</b>, and Archan Misra</p>
+          <p class="venue"><b>IEEE PerCom 2022</b></p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1145/3382507.3418863">Gesture Enhanced Comprehension of Ambiguous Human-to-Robot Instructions</a>
+          <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, Nipuni Karumpulli, <b>Tuan Tran</b>, Qianli Xu, U-Xuan Tan, Joo Hwee Lim, and Archan Misra</p>
+          <p class="venue"><b>ACM ICMI 2020</b></p>
+        </li>
+        <li class="pub">
+          <span class="pub-title">High-Throughput Machine Learning Approaches for Network Attacks Detection on FPGA</span>
+          <p class="authors">Duc-Minh Ngo, Binh Tran-Thanh, Truong Dang, <b>Tuan Tran</b>, Tran Ngoc Thinh, and Cuong Pham-Quoc</p>
+          <p class="venue"><b>Context-Aware Systems and Applications, and Nature of Computation and Communication</b> (Springer), 2019</p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1109/ACOMP.2018.00012">Smart-Config Wifi Technology Using ESP8266 for Low-Cost Wireless Sensor Networks</a>
+          <p class="authors"><b>Minh Anh Tuan Tran</b>, Trong Nhan Le, and Tan Phuong Vo</p>
+          <p class="venue"><b>ACOMP 2018</b></p>
+        </li>
+        <li class="pub">
+          <a class="pub-title" href="https://doi.org/10.1109/ACOMP.2018.00011">ODL-ANTIFLOOD: A Comprehensive Solution for Securing OpenDayLight Controller</a>
+          <p class="authors">Ngoc Thinh Tran, Tan Long Le, and <b>Minh Anh Tuan Tran</b></p>
+          <p class="venue"><b>ACOMP 2018</b></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="patents">
+      <h2>Patents</h2>
+      <p class="note">U.S. patent applications, pending</p>
+      <ul class="pubs">
+        <li class="pub">
+          <span class="pub-title">Hardware-Accelerated SFU Architecture for Scalable Real-Time Media Communications</span>
+          <p class="venue">U.S. Patent Application No. 64/141,048, filed August 25, 2026</p>
+        </li>
+        <li class="pub">
+          <span class="pub-title">DeepSFU: System and Method for Deepfake Detection in Video Conferencing</span>
+          <p class="venue">U.S. Patent Application No. 64/134,642, filed August 15, 2026</p>
+        </li>
+        <li class="pub">
+          <span class="pub-title">SFU Architecture for Enhanced Scalability of Video Conferencing</span>
+          <p class="venue">U.S. Patent Application No. 63/869,974, filed August 25, 2025</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="awards">
+      <h2>Awards and fellowships</h2>
+      <div class="timeline">
+        <div class="entry">
+          <div class="when">2025 – 2026</div>
+          <div>
+            <ul style="margin-top: 0;">
+              <li>Amy Barnes Frey Fellowship</li>
+              <li>NSDI '26 Grant</li>
+              <li>Conference Support Fellowship</li>
+              <li>Outstanding Research Paper Award</li>
+              <li>Outstanding Teaching Assistant Award</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2024 – 2025</div>
+          <div><ul style="margin-top: 0;"><li>Society of Telecom Fellowship</li></ul></div>
+        </div>
+        <div class="entry">
+          <div class="when">2023 – 2024</div>
+          <div>
+            <ul style="margin-top: 0;">
+              <li>Departmental Summer Research Fellowship</li>
+              <li>Outstanding Teaching Assistant Award</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2022 – 2023</div>
+          <div><ul style="margin-top: 0;"><li>Faculty Advisor Fellowship</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <h2>Professional service</h2>
+      <ul class="plain">
+        <li>Reviewer: IEEE Transactions on Mobile Computing</li>
+        <li>Sub-reviewer: ACM MobiCom (2025, 2026), IEEE INFOCOM (2025, 2026), ACM CoNEXT (2026)</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p style="margin: 0;">DPDK/DOCA, FPGA, RDMA, eBPF, WebRTC, Assembly</p>
+    </section>
+
+    <footer>Last updated October 2026</footer>
+  </main>
+</body>
+</html>
