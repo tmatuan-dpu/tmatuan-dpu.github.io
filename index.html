@@ -85,8 +85,10 @@
     aside a { color: var(--side-text); }
     aside a:hover { color: #fff; }
     .contact li { margin: 0.55rem 0; }
-    .contact a { display: inline-flex; align-items: center; gap: 0.7rem; }
-    .contact i { width: 1.4rem; font-size: 1.25rem; text-align: center; flex: none; }
+    .contact a { display: inline-flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .contact a:hover span, .contact a:focus-visible span { text-decoration: underline; text-underline-offset: 0.18em; }
+    .contact i { width: 1.4rem; font-size: 1.25rem; text-align: center; flex: none; color: var(--side-text); }
+    aside p a { text-decoration: underline; text-decoration-color: var(--side-muted); text-underline-offset: 0.18em; }
 
     /* ---------- Main content ---------- */
     main { padding: 3.25rem 4rem 4rem; max-width: 56rem; }
@@ -171,15 +173,16 @@
     <p class="tagline">Ph.D. Candidate<br>Department of Computer Science<br>University of Colorado Boulder</p>
 
     <ul class="contact">
-      <li><a href="mailto:Tuan.Tran@colorado.edu"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Tuan.Tran@colorado.edu</a></li>
-      <li><a href="https://www.linkedin.com/in/tuan-tran-mns/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>
-      <li><a href="https://github.com/tmatuan-dpu"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a></li>
-      <li><a href="https://scholar.google.com/citations?user=rkFq2IkAAAAJ&amp;hl=en"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i>Google Scholar</a></li>
-      <li><a href="TuanTran_CV.pdf"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>CV (PDF)</a></li>
+      <li><a href="mailto:Tuan.Tran@colorado.edu"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Tuan.Tran@colorado.edu</span></a></li>
+      <li><a href="https://www.linkedin.com/in/tuan-tran-mns/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+      <li><a href="https://github.com/tmatuan-dpu"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></li>
+      <li><a href="https://scholar.google.com/citations?user=rkFq2IkAAAAJ&amp;hl=en"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i><span>Google Scholar</span></a></li>
+      <!-- TuanTran_CV.pdf sits in the same folder as this file -->
+      <li><a href="TuanTran_CV.pdf"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>CV (PDF)</span></a></li>
     </ul>
 
     <h2>Affiliation</h2>
-    <p>Internet Systems Lab (ISL)<br>Department of Computer Science<br>University of Colorado Boulder</p>
+    <p><a href="https://netstech.org/">Internet Systems Lab (ISL)</a><br>Director: Professor Sangtae Ha<br>Department of Computer Science<br>University of Colorado Boulder</p>
 
     <h2>Research interests</h2>
     <ul>
@@ -195,7 +198,7 @@
   <main>
     <section id="about">
       <h2>About</h2>
-      <p class="lead">I am a Ph.D. candidate in Computer Science at the University of Colorado Boulder, where I work with Prof. Sangtae Ha in the Internet Systems Lab. My research is on networked systems for real-time media: RDMA- and DPU-accelerated infrastructure for high-throughput, low-latency streaming and AI systems, and multipath 5G transport for high-quality video calls at large scale. Recent first-author work includes eXpressSFU (NSDI&nbsp;'26), which scales video conferencing with SmartNICs, and DeepSFU (SIGCOMM&nbsp;'26), scalable deepfake detection for video conferencing.</p>
+      <p class="lead">I am a Ph.D. candidate in Computer Science at the University of Colorado Boulder, where I work with Prof. Sangtae Ha in the <a href="https://netstech.org/">Internet Systems Lab</a>. My research is on networked systems for real-time media: RDMA- and DPU-accelerated infrastructure for high-throughput, low-latency streaming and AI systems, and multipath 5G transport for high-quality video calls at large scale. Recent first-author work includes eXpressSFU (NSDI&nbsp;'26), which scales video conferencing with SmartNICs, and DeepSFU (SIGCOMM&nbsp;'26), scalable deepfake detection for video conferencing.</p>
       <p>Before Boulder, I spent three years as a research engineer at Singapore Management University working on multimodal human–robot instruction comprehension and low-power pervasive vision. I completed my B.Tech. in Computer Engineering at Ho Chi Minh City University of Technology, graduating first in my major with a thesis on FPGA-based intrusion detection for software-defined networking. In summer 2026 I was a student researcher on the Multimedia Streaming team at ByteDance.</p>
     </section>
 
