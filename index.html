@@ -131,7 +131,19 @@
 
     /* Publications and patents */
     .pubs { list-style: none; margin: 0; padding: 0; }
-    .pub { padding: 0.9rem 0; }
+    .pub { padding: 0.9rem 0; display: grid; grid-template-columns: 3.4rem 1fr; column-gap: 0.5rem; }
+    .pub > * { grid-column: 2; }
+    .pub::before {
+      content: "[" attr(data-id) "]";
+      grid-column: 1;
+      grid-row: 1 / span 6;
+      font-family: var(--sans);
+      color: var(--muted);
+      padding-top: 0.15rem;
+    }
+    .awards { list-style: none; margin: 0; padding: 0; }
+    .awards li { display: grid; grid-template-columns: 3.4rem 1fr; column-gap: 0.5rem; margin: 0.2rem 0; }
+    .awards li::before { content: "[" attr(data-id) "]"; font-family: var(--sans); color: var(--muted); }
     .pub + .pub { border-top: 1px solid var(--rule); }
     .pub-title { font-family: var(--sans); font-weight: 600; font-size: 1.08rem; color: var(--ink); }
     .pub-title:hover, .pub-title:focus-visible { color: var(--accent); }
@@ -263,63 +275,63 @@
     <section id="publications">
       <h2>Publications</h2>
       <ul class="pubs">
-        <li class="pub">
+        <li class="pub" data-id="C1">
           <a class="pub-title" href="https://doi.org/10.1145/3789240.3829184">DeepSFU: Scalable Deepfake Detection for Video Conferencing</a>
           <p class="authors"><b>Tuan Tran</b>, Shirin Ebadi, S. M. H. Hosseini, Woongsub Shin, Evan Ram, Youngwook Son, Seyeon Kim, Nam Bui, Kyunghan Lee, Eric Keller, and Sangtae Ha</p>
           <p class="venue"><b>ACM SIGCOMM 2026</b>, Denver, CO, USA, August 2026</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C2">
           <a class="pub-title" href="https://www.usenix.org/conference/nsdi26/presentation/tran">eXpressSFU: Toward Super-Scalable Video Conferencing with SmartNICs</a>
           <p class="authors"><b>Tuan Tran</b>, S. M. H. Hosseini, Seyeon Kim, Kyunghan Lee, Nam Bui, Dirk Grunwald, and Sangtae Ha</p>
           <p class="venue"><b>USENIX NSDI 2026</b>, Renton, WA, USA, May 2026</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C3">
           <a class="pub-title" href="https://doi.org/10.1145/3767308.3835424">RTCBench: A Scalable Benchmarking Framework for Multi-Party Video Conferencing</a>
           <p class="authors">Evan Ram*, <b>Tuan Tran</b>*, Youngwook Son, and Sangtae Ha</p>
           <p class="venue"><b>ACM Multimedia 2026</b>, Rio de Janeiro, Brazil, 2026</p>
           <p class="venue">* Equal contribution</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C4">
           <a class="pub-title" href="https://doi.org/10.1109/INFOCOM59046.2026.11571323">PAVE: Mitigating Non-Congestive Delay for Seamless Video Calls over NextG Mobile Networks</a>
           <p class="authors">Goodsol Lee, Seyeon Kim, Juheon Yi, Junhong Min, <b>Tuan Tran</b>, Sangtae Ha, Kyunghan Lee, and Saewoong Bahk</p>
           <p class="venue"><b>IEEE INFOCOM 2026</b>, Tokyo, Japan, May 2026</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C5">
           <a class="pub-title" href="https://doi.org/10.1109/COMSNETS56262.2023.10041269">Demonstrating Multi-modal Human Instruction Comprehension with AR Smart Glass</a>
           <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, <b>Tuan Tran</b>, and Archan Misra</p>
           <p class="venue"><b>COMSNETS 2023</b></p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C6">
           <a class="pub-title" href="https://doi.org/10.1145/3503161.3548432">SoftSkip: Empowering Multi-Modal Dynamic Pruning for Single-Stage Referring Comprehension</a>
           <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, <b>Tuan Tran</b>, and Archan Misra</p>
           <p class="venue"><b>ACM Multimedia 2022</b>, Lisbon, Portugal, October 2022</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="J1">
           <a class="pub-title" href="https://doi.org/10.1109/LRA.2022.3194683">COSM2IC: Optimizing Real-Time Multi-Modal Instruction Comprehension</a>
           <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, <b>Tuan Tran</b>, and Archan Misra</p>
           <p class="venue"><b>IEEE Robotics and Automation Letters</b>, vol. 7, no. 4, 2022</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C7">
           <a class="pub-title" href="https://doi.org/10.1109/PerCom53586.2022.9762398">MRIM: Enabling Mixed-Resolution Imaging for Low-Power Pervasive Vision Tasks</a>
           <p class="authors">Ji-Yan Wu, Vithurson Subasharan, <b>Tuan Tran</b>, and Archan Misra</p>
           <p class="venue"><b>IEEE PerCom 2022</b></p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C8">
           <a class="pub-title" href="https://doi.org/10.1145/3382507.3418863">Gesture Enhanced Comprehension of Ambiguous Human-to-Robot Instructions</a>
           <p class="authors">Dulanga Weerakoon, Vigneshwaran Subbaraju, Nipuni Karumpulli, <b>Tuan Tran</b>, Qianli Xu, U-Xuan Tan, Joo Hwee Lim, and Archan Misra</p>
           <p class="venue"><b>ACM ICMI 2020</b></p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C9">
           <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-3-030-34365-1_5">High-Throughput Machine Learning Approaches for Network Attacks Detection on FPGA</a>
           <p class="authors">Duc-Minh Ngo, Binh Tran-Thanh, Truong Dang, <b>Tuan Tran</b>, Tran Ngoc Thinh, and Cuong Pham-Quoc</p>
           <p class="venue"><b>Context-Aware Systems and Applications, and Nature of Computation and Communication</b> (Springer), 2019</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C10">
           <a class="pub-title" href="https://doi.org/10.1109/ACOMP.2018.00012">Smart-Config Wifi Technology Using ESP8266 for Low-Cost Wireless Sensor Networks</a>
           <p class="authors"><b>Minh Anh Tuan Tran</b>, Trong Nhan Le, and Tan Phuong Vo</p>
           <p class="venue"><b>ACOMP 2018</b></p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="C11">
           <a class="pub-title" href="https://doi.org/10.1109/ACOMP.2018.00011">ODL-ANTIFLOOD: A Comprehensive Solution for Securing OpenDayLight Controller</a>
           <p class="authors">Ngoc Thinh Tran, Tan Long Le, and <b>Minh Anh Tuan Tran</b></p>
           <p class="venue"><b>ACOMP 2018</b></p>
@@ -330,15 +342,15 @@
     <section id="patents">
       <h2>Patents</h2>
       <ul class="pubs">
-        <li class="pub">
+        <li class="pub" data-id="P1">
           <span class="pub-title">Hardware-Accelerated SFU Architecture for Scalable Real-Time Media Communications</span>
           <p class="venue">U.S. Patent Application No. 64/141,048, filed August 25, 2026</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="P2">
           <span class="pub-title">DeepSFU: System and Method for Deepfake Detection in Video Conferencing</span>
           <p class="venue">U.S. Patent Application No. 64/134,642, filed August 15, 2026</p>
         </li>
-        <li class="pub">
+        <li class="pub" data-id="P3">
           <span class="pub-title">SFU Architecture for Enhanced Scalability of Video Conferencing</span>
           <p class="venue">U.S. Patent Application No. 63/869,974, filed August 25, 2025</p>
         </li>
@@ -351,31 +363,31 @@
         <div class="entry">
           <div class="when">2025 – 2026</div>
           <div>
-            <ul style="margin-top: 0;">
-              <li>Amy Barnes Frey Fellowship</li>
-              <li>NSDI '26 Grant</li>
-              <li>Conference Support Fellowship</li>
-              <li>Outstanding Research Paper Award</li>
-              <li>Outstanding Teaching Assistant Award</li>
+            <ul class="awards">
+              <li data-id="A1">Amy Barnes Frey Fellowship</li>
+              <li data-id="A2">NSDI '26 Grant</li>
+              <li data-id="A3">Conference Support Fellowship</li>
+              <li data-id="A4">Outstanding Research Paper Award</li>
+              <li data-id="A5">Outstanding Teaching Assistant Award</li>
             </ul>
           </div>
         </div>
         <div class="entry">
           <div class="when">2024 – 2025</div>
-          <div><ul style="margin-top: 0;"><li>Society of Telecom Fellowship</li></ul></div>
+          <div><ul class="awards"><li data-id="A6">Society of Telecom Fellowship</li></ul></div>
         </div>
         <div class="entry">
           <div class="when">2023 – 2024</div>
           <div>
-            <ul style="margin-top: 0;">
-              <li>Departmental Summer Research Fellowship</li>
-              <li>Outstanding Teaching Assistant Award</li>
+            <ul class="awards">
+              <li data-id="A7">Departmental Summer Research Fellowship</li>
+              <li data-id="A8">Outstanding Teaching Assistant Award</li>
             </ul>
           </div>
         </div>
         <div class="entry">
           <div class="when">2022 – 2023</div>
-          <div><ul style="margin-top: 0;"><li>Faculty Advisor Fellowship</li></ul></div>
+          <div><ul class="awards"><li data-id="A9">Faculty Advisor Fellowship</li></ul></div>
         </div>
       </div>
     </section>
